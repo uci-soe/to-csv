@@ -3,6 +3,9 @@
 var assert = require('assert');
 var convert = require('../lib');
 
+/* Other Tests */
+require('./error');
+
 describe('convert-xls', function () {
   it('should output as CSV.', function () {
     assert(false, 'Not yet implemented.');
