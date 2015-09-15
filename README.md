@@ -33,7 +33,7 @@ content e1,content e2,content e3,content e4,content e5
 content f1,content f2,content f3,content f4,content f5
 ```
 
-This happens because the sudden change in column numbers from 3 (\@ row 4) to 5 (\@ row 6). Because the change is greater than 1 column, it is registered as headers and drops the above.
+This happens because the sudden change in column numbers from 3 (@ row 4) to 5 (@ row 6). Because the change is greater than 1 column, it is registered as headers and drops the above.
 
 This behavior is default and cannot be disabled yet.
 
