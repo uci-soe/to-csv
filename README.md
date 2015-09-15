@@ -110,4 +110,4 @@ Still working on this. See [LICENSE](LICENSE) for full info.
 
 ## Contributors
 
- © [Rhett Lowe](https://github.oit.uci.edu/rhett)
+- [Rhett Lowe](https://github.oit.uci.edu/rhett)
