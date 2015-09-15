@@ -41,7 +41,69 @@ This behavior is default and cannot be disabled yet.
 Add text here
 
 ## Usage (to be written)
-Add text here
+This can be used as a module or a server. To use as a module, install through NPM (still determining how to do this exactly) and require as normal
+
+```javascript
+var toCSV = require('to-csv');
+
+var fileXLSX = "test/samples/MS-Spring-2015.xlsx";
+var fileXLS = "test/samples/MS-Spring-2015.xls"; // this file is a TSV file labeled *.xls, 
+                                                    //as is Chalk & Wire's normal output 
+                                                    //and will produce errors when put into toCSV.xlsxToCSV 
+var fileCSV = "test/samples/MS-Spring-2015.csv";
+
+toCSV.xlsxToCSV(fileXLSX, function (err, res) {
+  if (err) {
+    throw err;
+  }
+  console.log(res); // CSV text
+});
+
+
+// since systems like Chalk & Wire produce TSV files with a *.xls name, 
+//    this will examine the content to determine the type
+toCSV.getFileType(fileXLS, function(err, type){ 
+  if (err) {
+    throw err;
+  }
+  console.log(type); // will output "tsv"
+});
+```
+
+### List of public functions
+- getFileType 
+  - takes filePath and callback 
+  - returns Q Promise 
+  - will return fileType, eventually 
+  - Gets file type based on file contents. If file type is not one normally handled by this server, it will throw an error 
+- removeHeaderRows 
+  - takes filePath or content and callback 
+  - returns Q Promise 
+  - will return csv/tsv w/o meta headers, eventually 
+  - Finds if there are meta headers and removes them. see above example in [Example](#example)
+- xlsxToCSV
+  - takes filePath or content and callback 
+  - returns Q Promise 
+  - will return csv, eventually 
+  - Converts well formed xls, xlsx, ots, etc files to csv
+- csvToCSV
+  - takes filePath or content and callback 
+  - returns Q Promise 
+  - will return csv, eventually 
+  - Converts csv files to well formed csv
+- tsvToCSV
+  - takes filePath or content and callback 
+  - returns Q Promise 
+  - will return csv, eventually 
+  - Converts tsv files to well formed csv
+- _svToCSV
+  - takes filePath or content and string of delimiter and callback 
+  - returns Q Promise 
+  - will return csv, eventually 
+  - Converts *sv (anything separated value) files to well formed csv
+- httpHandler
+  - takes `request` object with `{files:{file:{path:"path/to/file.ext"}}}` and a `response` object with `{send: function(){...}}` 
+  - will convert contents at `request.files.file.path` to string oc well formed CSV and send using `response.send(csvData);` 
 
 ## License
 Still working on this. See [LICENSE](LICENSE) for full info.
