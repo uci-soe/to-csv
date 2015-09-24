@@ -1,12 +1,13 @@
 'use strict';
 
 var assert = require('assert');
-var q      = require('q');
-var toCSV  = require('../lib');
 var path  = require('path');
+var q      = require('q');
+
+var toCSV  = require('../lib');
 
 /* Other Tests */
-require('./error');
+//require('./error');
 
 /* Sample Files */
 var fileTSV  = __dirname + '/../test/samples/MS-Spring-2015.xls',
