@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+'use strict';
 
 var restify = require('restify');
-var errors = require('restify-errors');
+//var errors = require('restify-errors');
 var toCSV = require('../lib');
 
 // Get untrackable configurations.

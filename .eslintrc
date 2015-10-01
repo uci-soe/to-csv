@@ -22,7 +22,7 @@
       "nofunc"
     ],
     "space-before-function-paren": [
-      2,
+      0,
       {
         "anonymous": "always",
         "named": "never"
@@ -47,7 +47,7 @@
     "no-multiple-empty-lines": [
       2,
       {
-        "max": 2
+        "max": 3
       }
     ],
     "brace-style": [
@@ -59,7 +59,7 @@
       "all"
     ],
     "key-spacing": [
-      2,
+      0,
       {
         "beforeColon": false,
         "afterColon": true
@@ -117,7 +117,7 @@
     "no-labels": 2,
     "no-lone-blocks": 2,
     "no-loop-func": 2,
-    "no-multi-spaces": 2,
+    "no-multi-spaces": 0,
     "no-multi-str": 2,
     "no-native-reassign": 2,
     "no-new-func": 2,
@@ -157,7 +157,7 @@
     "no-new-object": 2,
     "no-spaced-func": 2,
     "no-trailing-spaces": 2,
-    "no-underscore-dangle": 2,
+    "no-underscore-dangle": 1,
     "no-wrap-func": 2,
     "semi-spacing": [
       2,
@@ -170,6 +170,7 @@
     "space-return-throw-case": 2
   },
   "env": {
+    "es6": true,
     "node": true,
     "mocha": true
   }
