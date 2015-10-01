@@ -4,7 +4,7 @@ var assert = require('assert');
 var path   = require('path');
 var fs     = require('fs');
 //var q      = require('q');
-var csv    = require('csv');
+var csv = require('csv');
 
 var toCSV = require('../lib');
 
@@ -199,33 +199,47 @@ describe('toCSV', function () {
     });
   });
 
-  describe('End to end tests', function () {
-    fs.readdir(samplesDir, function (err, files) {
-      assert.ifError(err);
+  fs.readdir(samplesDir, function (err, files) {
+    assert.ifError(err);
+
+    describe('End to end tests', function () {
 
       files.forEach(function (file) {
 
-        it('should convert ' + file + ' to CSV without errors', function (done) {
-          assert.doesNotThrow(function () {
+        describe(file, function () {
+          it(file + 'should convert to CSV without errors', function (done) {
+            assert.doesNotThrow(function () {
 
-            toCSV.httpHandler({files: {file: {path: path.join(samplesDir, file)}}}, {
-              send: function (text) {
-                csv.parse(text, function(err2, val){
-                  assert.ifError(err2);
-                  assert(val);
-                  done();
-                });
-              },
-              header: function(name, val) { // eslint-disable-line no-unused-vars
-                // placeholder
-              }
-            });
+              toCSV.httpHandler(
+                { // Request
+                  files: {
+                    file: {
+                      path: path.join(samplesDir, file)
+                    }
+                  }
+                },
+                { // Response
+                  send  : function (text) {
+                    csv.parse(text, function (err2, val) {
+                      assert.ifError(err2);
+                      assert(val);
+                      done();
+                    });
+                  },
+                  header: function () {
+                    // Placeholder
+                  }
+                }
+              );
 
+            }, 'i hate you ');
           });
         });
 
       });
+
     });
   });
+
 
 });
