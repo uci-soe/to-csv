@@ -201,13 +201,17 @@ describe('toCSV', function () {
 
   fs.readdir(samplesDir, function (err, files) {
     assert.ifError(err);
+    var sampleOutIndex = files.indexOf('sample-out');
+    if (sampleOutIndex > -1) {
+      files.splice(sampleOutIndex, 1);
+    }
 
     describe('End to end tests', function () {
 
       files.forEach(function (file) {
 
         describe(file, function () {
-          it(file + 'should convert to CSV without errors', function (done) {
+          it(file + ' should convert to CSV without errors', function (done) {
             assert.doesNotThrow(function () {
 
               toCSV.httpHandler(
@@ -223,6 +227,9 @@ describe('toCSV', function () {
                     csv.parse(text, function (err2, val) {
                       assert.ifError(err2);
                       assert(val);
+
+                      fs.writeFile(path.join(samplesDir, 'sample-out', file) + ".csv", val);
+
                       done();
                     });
                   },
