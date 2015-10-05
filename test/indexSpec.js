@@ -201,10 +201,15 @@ describe('toCSV', function () {
 
   fs.readdir(samplesDir, function (err, files) {
     assert.ifError(err);
-    var sampleOutIndex = files.indexOf('sample-out');
-    if (sampleOutIndex > -1) {
-      files.splice(sampleOutIndex, 1);
-    }
+    [
+      'sample-out',
+      '.DS_Store'
+    ].forEach(function (f) {
+        let i = files.indexOf(f);
+        if (i > -1) {
+          files.splice(i, 1);
+        }
+      });
 
     describe('End to end tests', function () {
 
@@ -228,7 +233,7 @@ describe('toCSV', function () {
                       assert.ifError(err2);
                       assert(val);
 
-                      fs.writeFile(path.join(samplesDir, 'sample-out', file) + ".csv", val);
+                      fs.writeFile(path.join(samplesDir, 'sample-out', file) + ".csv", text);
 
                       done();
                     });
