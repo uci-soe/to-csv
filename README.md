@@ -106,7 +106,7 @@ toCSV.getFileType(fileXLS, function(err, type){
   - will convert contents at `request.files.file.path` to string oc well formed CSV and send using `response.send(csvData);` 
 
 ## License
-Still working on this. See [LICENSE](LICENSE) for full info.
+BSD 2-Clause Simplified. See [LICENSE](LICENSE) for full info.
 
 ## Contributors
 
