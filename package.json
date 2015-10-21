@@ -1,16 +1,20 @@
 {
   "name": "to-csv",
   "version": "0.0.0",
-  "description": "Convert XLS, XLSX, and ODT to CSV and JSON",
-  "homepage": "http://github.oit.uci.edu/education/srv-to-csv",
+  "description": "Convert XLS, XLSX, and ODT to CSV",
+  "homepage": "http://github.com/uci-soe/to-csv",
   "author": {
     "name": "Rhett Lowe",
     "email": "rhett@uci.edu",
-    "url": "https://github.oit.uci.edu/rhett"
+    "url": "https://github.com/rhettl"
   },
   "files": [
     "lib"
   ],
+  "license": "BSD-3-Clause",
+  "engines" : {
+    "node" : ">=4.0.0"
+  },
   "main": "lib/index.js",
   "keywords": [
     "xls",
