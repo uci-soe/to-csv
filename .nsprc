@@ -1,3 +1,3 @@
 {
-  "exceptions": ["https://nodesecurity.io/advisories/12"]
+  "exceptions": ["https://nodesecurity.io/advisories/55"] // Moment is a seb-dependency
 }

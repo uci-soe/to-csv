@@ -233,7 +233,7 @@ describe('toCSV', function () {
                       assert.ifError(err2);
                       assert(val);
 
-                      fs.writeFile(path.join(samplesDir, 'sample-out', file) + ".csv", text);
+                      fs.writeFile(path.join(samplesDir, 'sample-out', file) + '.csv', text);
 
                       done();
                     });
