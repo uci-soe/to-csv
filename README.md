@@ -37,8 +37,21 @@ This happens because the sudden change in column numbers from 3 (@ row 4) to 5 (
 
 This behavior is default and cannot be disabled yet.
 
-## Install (to be written)
-Add text here
+## Installation
+
+There are two ways to install: as a module or a microserver.
+
+#### 1. As submodule
+```bash
+npm install --save srv-to-csv
+```
+
+#### 2. As microservice
+```bash
+git clone http://github.com/uci-soe/to-csv
+cd to-csv
+npm start
+```
 
 ## Usage (to be written)
 This can be used as a module or a server. To use as a module, install through NPM (still determining how to do this exactly) and require as normal
