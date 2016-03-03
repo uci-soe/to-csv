@@ -1,6 +1,6 @@
 {
   "name": "to-csv",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Convert XLS, XLSX, and ODT to CSV",
   "homepage": "http://github.com/uci-soe/to-csv",
   "author": {
@@ -33,7 +33,10 @@
     "gulp-mocha": "^2.0.0",
     "gulp-nsp": "^0.4.5",
     "gulp-plumber": "^1.0.0",
-    "nsp": "^2.2.0"
+    "nsp": "^2.2.0",
+    "restify": "^4.0.2",
+    "restify-errors": "^3.0.0",
+    "stream-body-parser": "0.0.1"
   },
   "scripts": {
     "test": "npm run istanbul",
@@ -53,9 +56,6 @@
     "mime": "^1.3.4",
     "mmmagic": "^0.4.0",
     "q": "^1.4.1",
-    "restify": "^4.0.2",
-    "restify-errors": "^3.0.0",
-    "stream-body-parser": "0.0.1",
     "xlsx": "^0.8.0"
   }
 }
