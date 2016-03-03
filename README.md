@@ -1,4 +1,4 @@
-# CSV Conversion Server
+# CSV Conversion Server [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 Converts an XLSX, XLS, TSV, or CSV file to CSV. It bases changes on content, not file ext. This is handy for Chalk \& Wire files as they export TSV or TSV labeled XLS.
 
 Built in is a header/meta data remover. For Chalk & Wire, and other, files with meta-data rows placed in the top describing the file, this will remove them by parsing for a sudden change on content column length. presently this change is 2 + columns.
@@ -111,3 +111,13 @@ BSD 2-Clause Simplified. See [LICENSE](LICENSE) for full info.
 ## Contributors
 
 - [Rhett Lowe](https://github.oit.uci.edu/rhett)
+
+
+[npm-image]: https://badge.fury.io/js/srv-to-csv.svg
+[npm-url]: https://npmjs.org/package/srv-to-csv
+[travis-image]: https://travis-ci.org/uci-soe/to-csv.svg?branch=master
+[travis-url]: https://travis-ci.org/uci-soe/to-csv
+[daviddm-image]: https://david-dm.org/uci-soe/to-csv.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/uci-soe/to-csv
+[coveralls-image]: https://coveralls.io/repos/uci-soe/to-csv/badge.svg
+[coveralls-url]: https://coveralls.io/r/uci-soe/to-csv
