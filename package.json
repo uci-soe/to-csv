@@ -37,7 +37,7 @@
   },
   "scripts": {
     "test": "npm run istanbul",
-    "prepublish": "npm run nsp",
+    "prepublish": "npm run lint && npm run nsp",
     "start": "node ./bin/www.js",
 
     "nsp": "nsp check",
