@@ -199,17 +199,18 @@ describe('toCSV', function () {
     });
   });
 
+  /*eslint-disable max-nested-callbacks */
   fs.readdir(samplesDir, function (err, files) {
     assert.ifError(err);
     [
       'sample-out',
       '.DS_Store'
     ].forEach(function (f) {
-        let i = files.indexOf(f);
-        if (i > -1) {
-          files.splice(i, 1);
-        }
-      });
+      let i = files.indexOf(f);
+      if (i > -1) {
+        files.splice(i, 1);
+      }
+    });
 
     describe('End to end tests', function () {
 
@@ -228,7 +229,7 @@ describe('toCSV', function () {
                   }
                 },
                 { // Response
-                  send  : function (text) {
+                  send:   function (text) {
                     csv.parse(text, function (err2, val) {
                       assert.ifError(err2);
                       assert(val);
@@ -252,6 +253,7 @@ describe('toCSV', function () {
 
     });
   });
+  /*eslint-enable max-nested-callbacks */
 
 
 });

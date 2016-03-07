@@ -5,21 +5,23 @@ var restify = require('restify');
 //var errors = require('restify-errors');
 var toCSV = require('../lib');
 
+var pkg = require('../package.json');
+
 // Get untrackable configurations.
 var config = {};
 try {
-  config = require('../config.json');
+  config = require('../config.json'); //eslint-disable-line global-require
 } catch (err) {
   if (!err.message || err.code !== 'MODULE_NOT_FOUND') {
     throw err;
   }
 }
 
-var serviceName = process.env.npm_package_name || require('../package.json').name;
+var serviceName = process.env.npm_package_name || pkg.name;
 
 
 var server = restify.createServer({
-  name: serviceName,
+  name:    serviceName,
   version: '1.0.0'
 });
 
