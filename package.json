@@ -1,5 +1,5 @@
 {
-  "name": "to-csv",
+  "name": "srv-to-csv",
   "version": "0.2.0",
   "description": "Convert XLS, XLSX, and ODT to CSV",
   "homepage": "http://github.com/uci-soe/to-csv",
@@ -48,7 +48,6 @@
     "prepublish": "gulp prepublish",
     "start": "node ./bin/www.js"
   },
-  "private": true,
   "dependencies": {
     "csv": "^0.4.6",
     "csv-sniffer": "0.0.4",
