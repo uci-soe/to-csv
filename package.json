@@ -49,14 +49,14 @@
     "csv": "^0.4.6",
     "csv-sniffer": "0.0.4",
     "csvrow": "^0.1.0",
-    "exceljs": "^0.2.3",
+    "exceljs": "0.2.4",
     "mime": "^1.3.4",
     "minimatch": "^3.0.2",
     "mmmagic": "^0.4.0",
     "q": "^1.4.1",
-    "xlsx": "^0.8.0",
     "restify": "^4.0.2",
     "restify-errors": "^3.0.0",
-    "stream-body-parser": "0.0.1"
+    "stream-body-parser": "0.0.1",
+    "xlsx": "^0.8.0"
   }
 }
