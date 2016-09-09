@@ -218,6 +218,7 @@ describe('toCSV', function () {
 
         describe(file, function () {
           it(file + ' should convert to CSV without errors', function (done) {
+            this.timeout(3000);
             assert.doesNotThrow(function () {
 
               toCSV.httpHandler(
@@ -230,6 +231,9 @@ describe('toCSV', function () {
                 },
                 { // Response
                   send:   function (text) {
+                    if (typeof text === 'object' && text instanceof Error) {
+                      throw text;
+                    }
                     csv.parse(text, function (err2, val) {
                       assert.ifError(err2);
                       assert(val);
