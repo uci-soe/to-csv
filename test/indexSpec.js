@@ -17,7 +17,7 @@ var fileTSV    = path.join(samplesDir, 'MS-Spring-2015.xls');
 var fileXLSX   = path.join(samplesDir, 'MS-Spring-2015.xlsx');
 var fileCSV    = path.join(samplesDir, 'MS-Spring-2015.csv');
 
-var noHeaderFile = fs.readFileSync(path.join(samplesDir, 'no-headers.csv')).toString();
+var noHeaderFile = fs.readFileSync(path.join(samplesDir, 'no-headers.csv')).toString(); // eslint-disable-line no-sync
 
 describe('toCSV', function () {
 
@@ -73,7 +73,7 @@ describe('toCSV', function () {
       assert.equal(data.split(/\n/).length, rows);
 
       done();
-    })
+    });
   });
   it('should determine mime/file type based on content, not ext', function (done) {
     var ext = path.parse(fileTSV).ext;
@@ -244,7 +244,7 @@ describe('toCSV', function () {
 
         describe(file, function () {
           it(file + ' should convert to CSV without errors', function (done) {
-            this.timeout(3000);
+            this.timeout(3000); // eslint-disable-line no-valid-this
             assert.doesNotThrow(function () {
 
               toCSV.httpHandler(
