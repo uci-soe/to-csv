@@ -12,13 +12,25 @@ var toCSV = require('../lib');
 //require('./error');
 
 /* Sample Files */
-var samplesDir = path.normalize(path.join(__dirname, '/samples'));
-var fileTSV    = samplesDir + '/MS-Spring-2015.xls';
-var fileXLSX   = samplesDir + '/MS-Spring-2015.xlsx';
-var fileCSV    = samplesDir + '/MS-Spring-2015.csv';
+var samplesDir = path.join(__dirname, 'samples');
+var fileTSV    = path.join(samplesDir, 'MS-Spring-2015.xls');
+var fileXLSX   = path.join(samplesDir, 'MS-Spring-2015.xlsx');
+var fileCSV    = path.join(samplesDir, 'MS-Spring-2015.csv');
+
+var noHeaderFile = fs.readFileSync(path.join(samplesDir, 'no-headers.csv')).toString();
 
 describe('toCSV', function () {
 
+  it('should identify and remove header/meta data from top of document.', function (done) {
+    let test = 'a,\na,b\na,b\nc,d\n\ne,f,g,h,i,j\nk,l,m,n,o,p\ne,f,g,h,i,j\nk,l,m,n,o,p\ne,f,g,h,i,j\nk,l,m,n,o,p';
+
+    toCSV.removeHeaderRows(test, function (err, data) {
+      assert(!err, 'Error called in removing headers: ' + (err ? err.message : ''));
+      assert.equal(data.split('\n').length, 6, 'wrong number of lines found in comparing header rows');
+
+      done();
+    });
+  });
   it('should identify and remove header/meta data from top of document.', function (done) {
     let test = 'a,\na,b\na,b\nc,d\n\ne,f,g,h,i,j\nk,l,m,n,o,p\ne,f,g,h,i,j\nk,l,m,n,o,p\ne,f,g,h,i,j\nk,l,m,n,o,p';
 
@@ -48,6 +60,20 @@ describe('toCSV', function () {
 
       done();
     });
+  });
+  it('should not remove top rows in cases with fewer data columns than header columns', function (done) {
+    /*
+      Case: When no header and data rows don't all have content, this algorithm was dropping the top
+      in cases where column counts per row are (for example) 10, 7, 7, 9, the first 3 rows (header and 2 data rows) were being truncated.
+      check this doesn't happen.
+     */
+    let rows = noHeaderFile.split(/\n/).length;
+    toCSV.removeHeaderRows(noHeaderFile, function (err, data) {
+      assert.ifError(err);
+      assert.equal(data.split(/\n/).length, rows);
+
+      done();
+    })
   });
   it('should determine mime/file type based on content, not ext', function (done) {
     var ext = path.parse(fileTSV).ext;
