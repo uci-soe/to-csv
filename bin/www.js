@@ -29,4 +29,11 @@ var server = restify.createServer({
 server.post('/', restify.bodyParser(), toCSV.httpHandler);
 
 
-server.listen(config.port || process.env.PORT || process.env.npm_package_config_port || 15000);
+server.listen(config.port || process.env.PORT || process.env.npm_package_config_port || 15000, function () {
+  const addr = server.address();
+  const bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  console.log('Listening on ' + bind);
+});
+
